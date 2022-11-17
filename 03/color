@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Обозначения цветов: (1 - white, 2 - red, 3 - green, 4 - blue, 5 – purple, 6 - black)
+
+END='\033[0m'
+
+WHITEF='\033[47m'
+REDF='\033[41m'
+GREENF='\033[42m'
+BLUEF='\033[46m'
+PURPLEF='\033[45m'
+BLACKF='\033[40m'
+
+WHITE='\033[37m'
+RED='\033[31m'
+GREEN='\033[32m'
+BLUE='\033[36m'
+PURPLE='\033[35m'
+BLACK='\033[30m'
+
+case "$1" in
+        1)
+                param1_1fon=$WHITEF;;
+        2)
+                param1_1fon=$REDF;;
+        3)
+                param1_1fon=$GREENF;;
+        4)
+                param1_1fon=$BLUEF;;
+        5)
+                param1_1fon=$PURPLEF;;
+        6)
+                param1_1fon=$BLACKF;;
+esac
+
+case "$2" in
+        1)
+                param2_1word=$WHITE;;
+        2)
+                param2_1word=$RED;;
+        3)
+                param2_1word=$GREEN;;
+        4)
+                param2_1word=$BLUE;;
+        5)
+                param2_1word=$PURPLE;;
+        6)
+                param2_1word=$BLACK;;
+esac
+
+case "$3" in
+        1)
+                param3_2fon=$WHITEF;;
+        2)
+                param3_2fon=$REDF;;
+        3)
+                param3_2fon=$GREENF;;
+        4)
+                param3_2fon=$BLUEF;;
+        5)
+                param3_2fon=$PURPLEF;;
+        6)
+                param3_2fon=$BLACKF;;
+esac
+
+case "$4" in
+        1)
+                param4_2word=$WHITE;;
+        2)
+                param4_2word=$RED;;
+        3)
+                param4_2word=$GREEN;;
+        4)
+                param4_2word=$BLUE;;
+        5)
+                param4_2word=$PURPLE;;
+        6)
+                param4_2word=$BLACK;;
+esac
+
