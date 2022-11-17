@@ -1,0 +1,38 @@
+#!/bin/bash
+
+export HOSTNAME="$(cat /etc/hostname)"
+    echo "HOSTNAME=$HOSTNAME"
+export TIMEZONE="$(timedatectl | awk 'NR==4{print $3 " UTC", $5}' | tr -d "0)")"
+    echo "TIMEZONE=$TIMEZONE"
+export USER="$(whoami)"
+    echo "USER=$USER"
+export OS="$(awk '{print $1,$2,$3}' /etc/issue)"
+    echo "OS=$OS"
+export DATE="$(date | awk '{print $2,$3,$4,$5}')"
+    echo "DATE=$DATE"
+export UPTIME="$(uptime -p)"
+    echo "UPTIME=$UPTIME"
+export UPTIME_SEC="$(awk '{print $1}' /proc/uptime)"
+    echo "UPTIME_SEC=$UPTIME_SEC"
+export IP="$(hostname -I)"
+    echo "IP=$IP"
+export MASK="$(ifconfig | awk 'NR==2{print $4}')"
+    echo "MASK=$MASK"
+export GATEWAY="$(ip route | awk '/default/{print $3}')"
+    echo "GATEWAY=$GATEWAY"
+export RAM_TOTAL="$(free -m | awk '/Mem:/{printf "%.3f GB", $2/1024}')"
+    echo "RAM_TOTAL=$RAM_TOTAL"
+export RAM_USED="$(free -m | awk '/Mem:/{printf "%.3f GB", $3/1024}')"
+    echo "RAM_USED=$RAM_USED"
+export RAM_FREE="$(free -m | awk '/Mem:/{printf "%.3f GB", $4/1024}')"
+    echo "RAM_FREE=$RAM_FREE"
+export SPACE_ROOT="$(df /root/ | awk '/\/$/ {printf "%.2f MB", $2/1024}')"
+    echo "SPACE_ROOT=$SPACE_ROOT"
+export SPACE_ROOT_USED="$(df /root/ | awk '/\/$/ {printf "%.2f MB", $3/1024}')"
+    echo "SPACE_ROOT_USED=$SPACE_ROOT_USED"
+export SPACE_ROOT_FREE="$(df /root/ | awk '/\/$/ {printf "%.2f MB", $4/1024}')"
+    echo "SPACE_ROOT_FREE=$SPACE_ROOT_FREE"
+
+chmod +x ./question.sh
+./question.sh
+
